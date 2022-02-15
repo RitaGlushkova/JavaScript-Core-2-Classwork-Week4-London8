@@ -47,9 +47,17 @@ Create a function called "showMovies" that
 */
 
 function showMovies() {
-  // add code here
+  console.log("this run");
+  movies.forEach((movie) => {
+    let moviesDiv = document.getElementById("allMovies");
+    let p = document.createElement("p");
+    p.innerText = `title:${movie.title} director: ${movie.director}`;
+    console.log(moviesDiv);
+    moviesDiv.appendChild(p);
+  });
+  let number = document.getElementById("moviesNumber");
+  number.innerText = movies.length;
 }
-
 
 /*
 
@@ -63,22 +71,29 @@ How many movies can you see on your page?
 */
 
 const myFavMovie = {
+  title: "Midnight in Paris",
+  director: "Woody Allen",
+  type: "romantic comedy",
+  haveWatched: true,
   // add code here
-}
+};
 
-function addMovie(movie, callback) {
-  // add code here
+function addMovie(movie, callbacks) {
+  setTimeout(() => {
+    movies.push(movie), callbacks();
+  }, 2000);
 }
+console.log(movies);
+addMovie(myFavMovie, showMovies);
 
 /*
+
 
 Task 3
 Can you change the addMovie function to make sure the new movie you just added is showing on the screen?
 Hint: use callbacks
 
 */
-
-
 
 /*
 

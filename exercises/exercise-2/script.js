@@ -9,3 +9,11 @@ Exercise 2
   Hint: try searching for setInterval.
 
 */
+let counter = 0;
+let body = document.querySelector("body");
+setInterval(() => {
+  body.style.background = colorArray[counter];
+  counter++;
+  counter = counter % colorArray.length;
+}, 1000);
+let colorArray = ["red", "green", "blue", "pink"];
